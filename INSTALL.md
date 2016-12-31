@@ -62,7 +62,7 @@ sh models/download_models.sh
 You should now be able to run `neural-style` in CPU mode like this:
 
 ```
-th neural_style.lua -gpu -1 -print_iter -1
+th neural_style.lua -gpu -1 -print_iter 1
 ```
 
 If everything is working properly you should see output like this:
@@ -243,14 +243,14 @@ cuDNN is a library from NVIDIA that efficiently implements many of the operation
 that are commonly used in deep learning.
 
 After registering as a developer with NVIDIA, you can [download cuDNN here](https://developer.nvidia.com/cudnn).
+Make sure to download Version 4.
 
 After dowloading, you can unpack and install cuDNN like this:
 
-```
-tar -xzvf cudnn-6.5-linux-x64-v2.tgz
-cd cudnn-6.5-linux-x64-v2/
-sudo cp libcudnn* /usr/local/cuda-7.0/lib64
-sudo cp cudnn.h /usr/local/cuda-7.0/include
+```bash
+tar -xzvf cudnn-7.0-linux-x64-v4.0-prod.tgz
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda-7.0/lib64/
+sudo cp cuda/include/cudnn.h /usr/local/cuda-7.0/include/
 ```
 
 Next we need to install the torch bindings for cuDNN:
